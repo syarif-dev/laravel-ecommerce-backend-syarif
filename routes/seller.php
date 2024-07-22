@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\Seller\CategoryController;
-use App\Http\Controllers\Api\Seller\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Seller\OrderController;
+use App\Http\Controllers\Api\Seller\ProductController;
+use App\Http\Controllers\Api\Seller\CategoryController;
 
 
 Route::middleware('auth:sanctum')
@@ -30,4 +31,9 @@ Route::middleware('auth:sanctum')
         //         Route::put('/{id}', [ProductController::class, 'update'])->name('update');
         //         Route::delete('/{id}', [ProductController::class, 'destroy'])->name('destroy');
         // });
+
+        // order history
+        Route::get('order/histories', [OrderController::class, 'historyOrderSeller']);
+        // update resi
+        Route::put('order/{id}/update-resi', [OrderController::class, 'updateShippingNumber']);
 });
