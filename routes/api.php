@@ -15,3 +15,8 @@ Route::controller(AuthController::class)->group(function () {
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
+// seller
+require __DIR__.'/seller.php';
+// user or customer
+require __DIR__.'/customer.php';
