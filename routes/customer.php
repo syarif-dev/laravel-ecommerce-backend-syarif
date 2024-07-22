@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\Api\Seller\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Customer\AddressController;
 
-// Route::prefix('seller')->name('seller.')->group(function () {
-//     Route::prefix('categories')->name('categories.')->controller(CategoryController::class)->group(function () {
-//         Route::get('/', 'index')->name('index');
-//     });
-// })->middleware('auth:sanctum');
+Route::middleware('auth:sanctum')
+    ->prefix('customer')
+    ->name('customer.')
+    ->group(function () {
+        // address
+        Route::apiResource('address', AddressController::class);
+    });
